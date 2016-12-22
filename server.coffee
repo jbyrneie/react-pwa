@@ -3,7 +3,6 @@ http = require('http')
 bodyParser = require('body-parser')
 favicon = require('serve-favicon')
 cookieSession = require('cookie-session')
-morgan = require('morgan')
 port = process.argv[2] or process.env.PORT or 4444
 express = require('express')
 url = require('url')
@@ -13,7 +12,7 @@ app = express()
 
 app.set 'port', port
 app.use express.static(path.join(__dirname, 'public'))
-app.use(favicon(__dirname + '/public/images/favicon.ico'))
+app.use(favicon(__dirname + '/favicon.ico'))
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']

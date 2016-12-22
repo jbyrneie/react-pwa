@@ -5,7 +5,7 @@
   "private": true,
   "license": "Apache2",
   "scripts": {
-    "start": "gulp && ./node_modules/.bin/coffee server.coffee",
+    "start": "gulp generate-sw && ./node_modules/.bin/coffee server.coffee",
     "test": ". etc/local.env && gulp && ./node_modules/.bin/coffee server.coffee",
     "build": "gulp"
   },

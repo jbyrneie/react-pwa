@@ -28,7 +28,7 @@ gulp.task('generate-sw', function() {
     staticFileGlobs: [
       './index.html',
       './images/*.{png,svg,gif,jpg}',
-      './scripts/*.js',
+      './assets/*.js',
       './styles/*.css'
     ],
     runtimeCaching: [{
@@ -60,7 +60,7 @@ gulp.task('serve', ['generate-sw','js'], function() {
   });
   gulp.watch([
     './*.html',
-    './scripts/*.js',
+    './js/*.js',
     './styles/*.css',
     '!./service-worker.js',
     '!./gulpfile.js'

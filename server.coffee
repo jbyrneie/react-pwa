@@ -12,7 +12,7 @@ app = express()
 
 app.set 'port', port
 app.use express.static(path.join(__dirname, 'public'))
-app.use(favicon(__dirname + '/favicon.ico'))
+app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']

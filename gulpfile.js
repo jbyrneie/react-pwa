@@ -8,9 +8,13 @@ var rename = require('gulp-rename');
 var del = require('del');
 var swPrecache = require('sw-precache');
 
+gulp.task('clean', () => {
+  del ['public/assets/*' ]
+});
+
 gulp.task('sass', function () {
   return gulp
-    .src('./styles/*.scss')
+    .src('./public/styles/*.scss')
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('./styles/'))
@@ -37,10 +41,16 @@ gulp.task('generate-sw', function() {
       }
     }]
   };
-  return swPrecache.write('./service-worker.js', swOptions);
+  return swPrecache.write('./public/assets/service-worker.js', swOptions);
 });
 
-gulp.task('serve', ['generate-sw'], function() {
+gulp.task('js', () => {
+  return gulp
+    .src('./public/js/*.js')
+    .pipe(gulp.dest('./public/assets/'));
+});
+
+gulp.task('serve', ['generate-sw','js'], function() {
   gulp.watch('./styles/*.scss', ['sass']);
   browserSync({
     notify: false,
@@ -55,6 +65,9 @@ gulp.task('serve', ['generate-sw'], function() {
     '!./service-worker.js',
     '!./gulpfile.js'
   ], ['generate-sw'], browserSync.reload);
+});
+
+gulp.task('build', ['clean','generate-sw','js'], function() {
 });
 
 gulp.task('default', ['serve']);

@@ -234,7 +234,7 @@
   // Cancelling Install prompt
   window.addEventListener('beforeinstallprompt', function(e) {
     console.log('beforeinstallprompt Event fired');
-    e.preventDefault();
+    //e.preventDefault();
     return false;
   });
 

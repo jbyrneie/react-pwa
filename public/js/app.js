@@ -51,6 +51,7 @@
 
   /* Event listener for refresh button */
   document.getElementById('butRefresh').addEventListener('click', function() {
+    console.log('refresh')
     app.updateForecasts();
   });
 
@@ -173,6 +174,7 @@
   // Gets a forecast for a specific city and update the card with the data
   app.getForecast = function(key, label) {
     var url = weatherAPIUrlBase + key + '.json';
+    console.log('getForecast url: %s', url)
     if ('caches' in window) {
       caches.match(url).then(function(response) {
         if (response) {

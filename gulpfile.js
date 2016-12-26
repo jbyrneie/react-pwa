@@ -6,7 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var del = require('del');
-var swPrecache = require('sw-precache');
+/* var swPrecache = require('sw-precache'); */
 
 gulp.task('clean', () => {
   del ['public/assets/*' ]
@@ -23,6 +23,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./styles/'));
 });
 
+/*
 gulp.task('generate-sw', function() {
   var swOptions = {
     staticFileGlobs: [
@@ -41,8 +42,9 @@ gulp.task('generate-sw', function() {
       }
     }]
   };
-  return swPrecache.write('./public/service-worker.js', swOptions);
+  return swPrecache.write('public/sw.js', swOptions);
 });
+*/
 
 gulp.task('js', () => {
   return gulp
@@ -50,7 +52,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest('./public/assets/'));
 });
 
-gulp.task('serve', ['generate-sw','js'], function() {
+gulp.task('serve', ['generate-sw1','js'], function() {
   gulp.watch('./styles/*.scss', ['sass']);
   browserSync({
     notify: false,
@@ -67,7 +69,7 @@ gulp.task('serve', ['generate-sw','js'], function() {
   ], ['generate-sw'], browserSync.reload);
 });
 
-gulp.task('build', ['clean','generate-sw','js'], function() {
+gulp.task('build', ['clean','js'], function() {
 });
 
 gulp.task('default', ['serve']);

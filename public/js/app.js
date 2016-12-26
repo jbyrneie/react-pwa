@@ -234,6 +234,9 @@
      .register('./service-worker.js')
      .then(function() {
         console.log('Service Worker Registered');
+      })
+     .catch(function(e) {
+        console.log('register error: %s', e); // "oh, no!"
       });
   }
 

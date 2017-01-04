@@ -1,0 +1,62 @@
+@import "mixins";
+
+.btn-xs{
+  padding: 1px 10px;
+}
+.btn-md{
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.btn-lg{
+  padding: 14px 19px 12px;
+  font-size: 16px;
+}
+.btn{
+  display: inline-block;
+  @include borderRadius(0.2rem);
+  letter-spacing: .15rem;
+  text-decoration: none;
+  border-style: none;
+  cursor: pointer;
+}
+.btn-block{
+  display: block;
+  width: 100%;
+}
+.btn-warning{
+  background-color: $error-color;
+  color: #fff !important;
+  &:hover{
+    background-color: darken( #f24c45, 15% );
+    @include transition(.3s, .1s);
+  }
+}
+.btn-primary{
+  background-color: $success-color;
+  color: #fff !important;
+  &:hover{
+    background-color: darken( #92c001, 15% );
+    @include transition(.3s, .1s);
+  }
+}
+.btn-outline{
+  background-color: #fff;
+  border: 1px solid $body-text-color;
+  padding-top: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: $body-text-color !important;
+  &:hover{
+    background-color: #f2f2f2;
+    @include transition(.3s, .1s);
+  }
+}
+.btn-default{
+  border: 0px solid #e7e7e7;
+  background-color: $body-text-color;
+  color: #fff !important;
+  &:hover{
+    background-color: darken( #f7f7f7, 15% );
+    @include transition(.3s, .1s);
+  }
+}

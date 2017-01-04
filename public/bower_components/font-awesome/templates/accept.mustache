@@ -1,0 +1,170 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title>GLG: Invitation to Consult &mdash; {{subject}}</title>
+
+        <style type="text/css">
+            #outlook a{padding:0;}
+            img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+            table { border-collapse: initial; }
+            table td{border-collapse:collapse;}
+            p {margin: 0;}
+        </style>
+    </head>
+    <body style="max-width:768px;background-color:#FFF; font-family: Helvetica,Arial,sans-serif; color:#333; font-size: 14px; line-height: 14px; padding:20px;">
+      Hi {{participant.councilMember.firstName}},
+      <br/>
+      <br/>
+
+      Thanks for taking the time to discuss our client’s ongoing project.
+
+        {{^needsPhoneAcceptConfirmation}}
+        {{#todos.length}}
+          Before your call, you will need to complete the below:
+        {{/todos.length}}
+          <ul>
+            {{#todos.length}}
+              {{#todos}}
+                <li style="margin-bottom: 1em">{{{text}}} <br /> <a href="{{url}}">{{url}}</a></li>
+              {{/todos}}
+            {{/todos.length}}
+
+            <li>Please take a minute to review the responses we recorded (below) and make sure everything was entered correctly. If anything needs to be changed, please contact me right away.
+              <br/><br/>
+              <table>
+                {{#profileQuestions}}
+                  <tr>
+                    <td style="vertical-align: top; width: 17px; padding: 0px;">Q:</td>
+                    <td>{{{question}}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: top; width: 17px; padding: 0px;">A:</td>
+                    <td style="padding-bottom: 1em;">{{answer}} {{#comment}}- {{{comment}}}{{/comment}}</td>
+                  </tr>
+                {{/profileQuestions}}
+
+                {{#oversightQuestions}}
+                  {{#currentResponse}}
+                  <tr>
+                    <td style="vertical-align: top; width: 17px; padding: 0px;">Q:</td>
+                    <td style="">{{{question}}}{{#longText}}{{{longText}}}{{/longText}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: top; width: 17px; padding: 0px;">A:</td>
+                    <td style="padding-bottom: 1em;">
+                      {{{response}}} {{#comments}} - {{{comments}}}{{/comments}}
+                    </td>
+                  </tr>
+                  {{/currentResponse}}
+                {{/oversightQuestions}}
+              </table>
+            </li>
+          </ul>
+        {{/needsPhoneAcceptConfirmation}}
+
+
+        {{#needsPhoneAcceptConfirmation}}
+          Please confirm, by clicking the <strong>“I Confirm”</strong> link below, that (i) you understand that you are bound by GLG’s Terms and Conditions; (ii) your GLG biography and work history are accurate, current, and complete; and (iii) the following project screening responses you provided are accurate:
+          <br/><br/>
+
+          <table>
+          {{#profileQuestions}}
+            <tr>
+              <td style="vertical-align: top; width: 17px; padding: 0px;">Q:</td>
+              <td>{{{question}}}</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; width: 17px; padding: 0px;">A:</td>
+              <td style="padding-bottom: 1em;">{{answer}} {{#comment}}- {{{comment}}}{{/comment}}</td>
+            </tr>
+          {{/profileQuestions}}
+
+          {{#oversightQuestions}}
+            <tr>
+              <td style="vertical-align: top; width: 17px; padding: 0px;">Q:</td>
+              <td style="">{{{question}}}{{#longText}}{{{longText}}}{{/longText}}</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top; width: 17px; padding: 0px;">A:</td>
+              <td style="padding-bottom: 1em;">
+                {{{currentResponse.response}}} {{#currentResponse.comments}} - {{{currentResponse.comments}}}{{/currentResponse.comments}}
+              </td>
+            </tr>
+          {{/oversightQuestions}}
+          </table>
+
+          If any of the information above-referenced is not accurate, please let me know as soon as possible.
+          <br/><br/>
+          <a href="{{oqResponseConfirmationUrl}}">I Confirm</a>
+          <br/>
+          <br/>
+        {{/needsPhoneAcceptConfirmation}}
+
+        Thanks,<br /><br />
+
+        {{employee.name}}<br />
+        Gerson Lehrman Group | {{employee.email}} | {{employee.phone}}
+        <br />
+        <br />
+        <hr />
+        <br />
+
+        <span style="font-weight:bold;">Project Description</span>
+        <div>
+            {{{localizedDescription}}}
+        </div>
+        <br/>
+
+        {{#clientComplianceText}}
+        <b>Please note that the GLG client has asked that the following comment be included in this message</b><br/>
+        {{clientComplianceText}}
+        <br/>
+        {{/clientComplianceText}}
+
+
+
+        <div style="color: #777; font-style: italic; font-size: 12px; line-height: 16px;">
+            <br/>
+            <span style="font-weight: bold;">Terms and Conditions</span><br/>
+            If you have not already done so, you will be required to complete an online tutorial about confidentiality and sign the current Terms and Conditions of Council Membership ("Terms and Conditions"), before you can accept this project.
+
+            We may also ask you a few questions to help determine your suitability for this project.
+            Acceptance is complete once you acknowledge that your GLG profile is current and that your
+            participation in the project is bound by the Terms and Conditions, which provide, among other things if you are employed, you may not speak on behalf of or about your employer. To
+            encourage you to err on the side of caution during your participation as a Council Member, you may submit a payment request for the full time you set aside for any project you discontinue in order to comply with your obligations and the Terms and Conditions.
+
+            <br/>
+            <br/>
+
+            <span style="font-weight: bold;">Confidentiality</span><br/>
+            Please remember you must not disclose confidential information to GLG or its clients and you must not mention your other GLG projects with any client or other third party. This includes the topic of past discussions, identity of clients you have worked with, and frequency of work you do with us. Feel free to contact us directly with any questions.
+
+            Certain of our clients may wish to screen the topic and your ability to consult comfortably prior to a second conversation with a research analyst. Please note that you may receive such a call from a client compliance staff member and may invoice us for your time spent on both calls.
+
+            <br/>
+            <br/>
+
+            <span style="font-weight: bold;">Compensation</span><br/>
+            Council Members are compensated at their regular honorarium rate for the time spent on the phone with our client, unless otherwise specified by GLG. Any requests for preparation time must be authorized by GLG. GLG does not guarantee that if you accept this project, the client will contact you.
+
+            <br/>
+            <br/>
+
+            This e-mail may contain information that is confidential and subject to legal restrictions and penalties
+            regarding its unauthorized disclosure or use. You are prohibited from copying, distributing or otherwise
+            using this information if you are not the intended recipient. If you have received this e-mail in error,
+            please notify us immediately by return e-mail and delete this e-mail and its attachments from your system.
+            Thank you.
+        </div>
+        {{!
+          We embed hopefully hidden metadata about the emails
+          below so they can be parsed out from our outlook 365 email web hooks
+        }}
+        <div style="color:#bbb; font-size: 12px; line-height: 16px;">
+          ref: {{ref.type}}.{{{ref.token}}}
+        </div>
+
+    </body>
+</html>

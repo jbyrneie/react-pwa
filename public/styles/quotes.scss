@@ -1,0 +1,123 @@
+@import "mixins";
+.logo{
+	margin-bottom: 0;
+	font-size: 2.0em;
+  color: white
+}
+#quotes{
+	.container{
+		margin: 30px 15px;
+		max-width: 1200px;
+		@include breakp($bp-medium){
+	    margin: 30px auto;
+	  }
+	}
+  .errorbar{
+		display: inline-block;
+		width: 100%;
+		vertical-align: top;
+	}
+	.mainbar{
+		display: inline-block;
+		width: 100%;
+		margin-right: 2%;
+		vertical-align: top;
+	}
+	.card{
+		background: #fff;
+		border: 1px solid #f2f2f2;
+		padding: 20px;
+		max-width: 1200px;
+	}
+  .errorcard{
+		background: #fff;
+		border: 1px solid #f2f2f2;
+		padding: 20px;
+    margin: 0 0 10px 0;
+	}
+  .search{
+		background: #fff;
+		border: 1px solid #f2f2f2;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+	}
+  .searchcard{
+	  float: right;
+	}
+  #filterPayments {
+    top: -1.3em;
+    margin-right: 8em;
+    margin-left: -6em;
+    margin-top: -0.6em;
+    font-size: 1em;
+    position: relative;
+    float: right;
+  }
+	.questions{
+		ul li{
+			margin-bottom: 10px;
+		}
+	}
+  .fa{
+    font-size: medium;
+  }
+  .ticker{
+		margin-bottom: 0;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  .delta{
+		margin-bottom: 0;
+    cursor: pointer;
+  }
+  .row{
+		padding-top: 8px
+	}
+	.left{
+		padding-left: 8px
+	}
+  .middle{
+		padding-left: 8px
+	}
+  .right{
+		padding-left: 8px
+	}
+  .projectDescription{
+		padding-top: 8px
+	}
+  .projectQuestions{
+		padding-top: 8px
+	}
+  .history{
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+	.RM {
+		margin-bottom: 1em;
+    font-weight: 900;
+	}
+	.cautionFlag {
+		margin-left: .5em;
+    color: orange;
+	}
+	.internalNote {
+		margin-left: .5em;
+	}
+	.terms {
+		font-size: .9em;
+	}
+  .toolTip{
+    color: #dad8d8;
+    font-weight: 400;
+		width: 400px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+	}
+	th, td {
+	    padding: 8px;
+	    text-align: left;
+	    border-bottom: 1px solid #ddd;
+	}
+}

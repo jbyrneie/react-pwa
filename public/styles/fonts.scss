@@ -1,0 +1,111 @@
+@import "mixins";
+
+@font-face {
+  font-family: 'Grotesk';
+  src: url('./fonts/NHaasGroteskDSW02-45Lt/NHaasGroteskDSW02-45Lt.eot'); /* IE9 Compat Modes */
+  src: url('./fonts/NHaasGroteskDSW02-45Lt/NHaasGroteskDSW02-45Lt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./fonts/NHaasGroteskDSW02-45Lt/NHaasGroteskDSW02-45Lt.woff') format('woff'), /* Modern Browsers */
+      url('./fonts/NHaasGroteskDSW02-45Lt/NHaasGroteskDSW02-45Lt.ttf')  format('truetype'), /* Safari, Android, iOS */
+      url('./fonts/NHaasGroteskDSW02-45Lt/NHaasGroteskDSW02-45Lt.svg#cba4ea1365b44d60601500cecffd3587') format('svg'); /* Legacy iOS */
+  font-style:  normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Grotesk';
+  src: url('./fonts/NHaasGroteskDSW02-Bd/NHaasGroteskDSW02-Bd.eot'); /* IE9 Compat Modes */
+  src: url('./fonts/NHaasGroteskDSW02-Bd/NHaasGroteskDSW02-Bd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./fonts/NHaasGroteskDSW02-Bd/NHaasGroteskDSW02-Bd.woff') format('woff'), /* Modern Browsers */
+      url('./fonts/NHaasGroteskDSW02-Bd/NHaasGroteskDSW02-Bd.ttf')  format('truetype'), /* Safari, Android, iOS */
+      url('./fonts/NHaasGroteskDSW02-Bd/NHaasGroteskDSW02-Bd.svg#cba4ea1365b44d60601500cecffd3587') format('svg'); /* Legacy iOS */
+  font-style:  normal;
+  font-weight:  bold;
+}
+
+@font-face {
+    font-family: "glgfont";
+    src:url('./fonts/glg-icons/GLG_PD_131126.eot');
+    src:url('./fonts/glg-icons/GLG_PD_131126.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/glg-icons/GLG_PD_131126.ttf') format('truetype'),
+        url('./fonts/glg-icons/GLG_PD_131126.woff') format('woff'),
+        url('./fonts/glg-icons/GLG_PD_131126.svg#GLG_PD_131126') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444;
+  font-weight: 400;
+  letter-spacing: .02em;
+  line-height: 1.6;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: .4em;
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+// 1.250 Major Third Visual Type Scale
+// Base font size of 16px
+
+// H1 Should only appear once per page
+h1{
+  font-size: 1.602em;
+  line-height: 1.4;
+  @include breakp($bp-medium){
+    font-size: 2.074em;
+  }
+  @include breakp($bp-large){
+    font-size: 2.441em;
+  }
+}
+
+// Section Titles
+h2 {
+  font-size: 1.424em;
+  @include breakp($bp-medium){
+    font-size: 1.728em;
+  }
+  @include breakp($bp-large){
+    font-size: 1.953em;
+  }
+}
+
+h3 {
+  font-size: 1.266em;
+  margin-bottom: .2em;
+  @include breakp($bp-medium){
+    font-size: 1.44em;
+  }
+  @include breakp($bp-large){
+    font-size: 1.563em;
+  }
+}
+
+h4 {
+  font-size: 1.125em;
+  letter-spacing: .01em;
+  @include breakp($bp-medium){
+    font-size: 1.2em;
+  }
+  @include breakp($bp-large){
+    font-size: 1.25em;
+  }
+}
+
+h5 {
+  font-size: 0.875em;
+  letter-spacing: .02em;
+  @include breakp($bp-medium){
+    font-size: 0.95em;
+  }
+  @include breakp($bp-large){
+    font-size: 1em;
+  }
+}
+
+.upper{
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}

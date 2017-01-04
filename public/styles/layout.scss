@@ -1,0 +1,29 @@
+@import "mixins";
+
+body{
+	background-color: #f7f7f7;
+	color: $body-text-color;
+  font-size: 16px;
+  font-weight: 400;
+	font-family: 'Grotesk';
+	margin: 0;
+	letter-spacing: .5px;
+	line-height: 1.6;
+}
+html, *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+header {
+	background: #1f2533;
+	padding: 15px 15px 6px;
+	text-align: center;
+	@include breakp($bp-medium){
+    text-align: left;
+  }
+	.logo {
+		width: 100%;
+		max-width: 200px;
+	}
+}

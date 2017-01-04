@@ -19,10 +19,12 @@ export default class SearchQuotes extends React.Component {
     }
 
     const context = this;
-    fetch('quote/' + this._quote.value).then(function(response) {
+    const ticker = this._quote.value;
+    fetch('quote/' + ticker).then(function(response) {
       return response.json();
     }).then(function(json) {
       context.props.onQuoteReceived(json.query.results.quote)
+      context._quote.value = '';
     });
   }
 }

@@ -1,5 +1,6 @@
 path = require('path')
 http = require('http')
+request = require('request')
 bodyParser = require('body-parser')
 favicon = require('serve-favicon')
 cookieSession = require('cookie-session')
@@ -31,13 +32,17 @@ app.get '/diagnostic', (req, res) ->
   res.send 200, 'Environment: ' + app.get('env')
   return
 
-app.get '/getEnv', (req, res) ->
-  console.log 'server | /getEnv '
-  envVars =
-    EPI_STREAMING_SERVER: process.env.EPI_STREAMING_SERVER
-    STREAMLINER_SERVER: process.env.STREAMLINER_SERVER
-  res.send {user: req.user, envVars: envVars}
-  return
+app.get '/quote/:ticker', (req, res) ->
+  console.log 'server | /quote ticker: %s', req.params.ticker
+  url = "http://query.yahooapis.com/v1/public/yql?q=env 'store://datatables.org/alltableswithkeys';select * from yahoo.finance.quotes where symbol in (\"" + req.params.ticker + "\")&format=json"
+  quote = {};
+
+  request url, (error, response, results) ->
+    #console.log('results: %s', JSON.stringify(results));
+    if typeof response == 'undefined'
+      res.sendStatus(500)
+    else res.send results
+    return
 
 # Start Express
 console.log 'PORT: ' + app.get('port')

@@ -4,26 +4,16 @@ export default class QuoteDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      showDescription: true
+      showQuoteDetails: true
     };
   }
 
   render() {
-    console.log("quote: %s", JSON.stringify(this.props.quote))
     let description;
-    let title = <div>
-                  <span className="ticker upper" onClick={this._toggleDescription.bind(this)}>{this.props.quote.Name}&nbsp;({this.props.quote.symbol})&nbsp;{this.props.quote.Ask}&nbsp;{showHideDescription}</span>
-                  <span className="delta">{this.props.quote.Change_PercentChange}</span>
-                </div>
-    let showHideDescription = <i className="fa fa-chevron-right icon" onClick={this._toggleDescription.bind(this)}></i>
+    let showHideQuoteDetails = <i className="fa fa-chevron-right icon" onClick={this._toggleQuoteDetails.bind(this)}></i>
 
-    if (this.state.showDescription) {
-      description = <div className="projectDescription" dangerouslySetInnerHTML={{__html: this.props.quote.consultationDescriptionText}}></div>
-      showHideDescription = <i className="fa fa-chevron-down icon" onClick={this._toggleDescription.bind(this)}></i>
-    }
-
-    const content = <div>
-                      {title}
+    if (this.state.showQuoteDetails) {
+      description = <div>
                       <table>
                         <tbody>
                         <tr>
@@ -49,14 +39,26 @@ export default class QuoteDetail extends React.Component {
                         </tbody>
                       </table>
                     </div>
+      showHideQuoteDetails = <i className="fa fa-chevron-down icon" onClick={this._toggleQuoteDetails.bind(this)}></i>
+    }
+
+    let title = <div>
+                  <span className="ticker upper" onClick={this._toggleQuoteDetails.bind(this)}>{this.props.quote.Name}&nbsp;({this.props.quote.symbol})&nbsp;{this.props.quote.Ask}&nbsp;{showHideQuoteDetails}</span>
+                  <span className="delta">{this.props.quote.Change_PercentChange}</span>
+                </div>
+
+    const content = <div>
+                      {title}
+                      {description}
+                    </div>
     return (
       <div className="card">{content}</div>
     )
   }
 
-  _toggleDescription(event) {
+  _toggleQuoteDetails(event) {
     event.preventDefault();
-    this.setState({showDescription: !this.state.showDescription})
+    this.setState({showQuoteDetails: !this.state.showQuoteDetails})
   }
 
 }

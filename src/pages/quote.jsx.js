@@ -13,7 +13,6 @@ export default class QuotePage extends React.Component {
   }
 
   render() {
-    console.log('render quote: %s', JSON.stringify(this.state.quote))
     let search = <div id="quotes">
                     <main>
                       <div className="container">
@@ -33,7 +32,7 @@ export default class QuotePage extends React.Component {
     else content = <div id="quotes">
                         <main>
                           <div className="container">
-                            <Quote quote={this.state.quote} envVars={this.props.envVars}/>
+                            <Quote quote={this.state.quote}/>
                           </div>
                         </main>
                     </div>
@@ -49,7 +48,6 @@ export default class QuotePage extends React.Component {
   }
 
   _handleQuote(quote) {
-    console.log('_handleQuote quote: %s', JSON.stringify(quote))
     this.setState({quote: quote})
   }
 }

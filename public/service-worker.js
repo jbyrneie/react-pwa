@@ -1,24 +1,12 @@
-var cacheName = 'weatherPWA-v2-3';
-var dataCacheName = 'weatherData-v2-3';
+var cacheName = 'quotesPWA-v1-3';
+var dataCacheName = 'quotesData-v1-3';
 var filesToCache = [
   './',
   './index.html',
-  './assets/app.js',
-  './assets/localforage-1.4.0.js',
-  './styles/ud811.css',
-  './images/clear.png',
-  './images/cloudy-scattered-showers.png',
-  './images/cloudy.png',
-  './images/fog.png',
-  './images/ic_add_white_24px.svg',
-  './images/ic_refresh_white_24px.svg',
-  './images/partly-cloudy.png',
-  './images/rain.png',
-  './images/scattered-showers.png',
-  './images/sleet.png',
-  './images/snow.png',
-  './images/thunderstorm.png',
-  './images/wind.png'
+  './assets/app.css',
+  './assets/core.css',
+  './assets/js/bundle.js',
+  './images/favicon.ico'
 ];
 var weatherAPIUrlBase = 'https://publicdata-weather.firebaseio.com./';
 
@@ -47,8 +35,8 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-  console.log('fetach url: %s', e.request.url)
-  if (e.request.url.startsWith(weatherAPIUrlBase)) {
+  console.log('ServiceWorker] fetch url: %s index: %s', e.request.url, e.request.url.indexOf('quote'))
+  if (e.request.url.indexOf('quote') !== -1) {
     e.respondWith(
       fetch(e.request)
         .then(function(response) {

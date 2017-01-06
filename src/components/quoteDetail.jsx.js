@@ -9,11 +9,11 @@ export default class QuoteDetail extends React.Component {
   }
 
   render() {
-    let description;
+    let details;
     let showHideQuoteDetails = <i className="fa fa-chevron-right icon" onClick={this._toggleQuoteDetails.bind(this)}></i>
 
     if (this.state.showQuoteDetails) {
-      description = <div>
+      details = <div>
                       <table>
                         <tbody>
                         <tr>
@@ -49,7 +49,7 @@ export default class QuoteDetail extends React.Component {
 
     const content = <div>
                       {title}
-                      {description}
+                      {details}
                     </div>
     return (
       <div className="card">{content}</div>
